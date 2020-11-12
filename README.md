@@ -3,8 +3,11 @@
 ## Description
 This is our implementation of Assignment 4 in Test class. We chose to implement a tic-tac-toe game and fully covered with unittests.
 
-## How to run
+### How to run
 You run our game by running the Main class in the project. Simple as that.
+
+### Code Coverage
+[link](coverage/index.html)
 
 ## Mockito Powerups
 
