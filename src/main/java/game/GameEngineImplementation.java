@@ -72,7 +72,8 @@ public class GameEngineImplementation implements GameEngine {
     @Override
     public void endTurn() throws BoardException {
         switchPlayer();
-        if (ai) {
+
+        if (ai && currentPlayer.equals('O')) {
             aiMove();
         }
     }
@@ -112,7 +113,7 @@ public class GameEngineImplementation implements GameEngine {
     }
 
 
-    private boolean checkRowsForWin() {
+    private boolean checkColumnsForWin() {
         if (board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == 'X') {
             return true;
         } else if (board[0][0] == 'O' && board[1][0] == 'O' && board[2][0] == 'O') {
@@ -129,7 +130,7 @@ public class GameEngineImplementation implements GameEngine {
         return false;
     }
 
-    private boolean checkColumnsForWin() {
+    private boolean checkRowsForWin() {
         if (board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == 'X') {
             return true;
         } else if (board[0][0] == 'O' && board[0][1] == 'O' && board[0][2] == 'O') {
@@ -165,14 +166,12 @@ public class GameEngineImplementation implements GameEngine {
         int max = 3;
         int x = rand.nextInt((max - min) + 1) + min;
         int y = rand.nextInt((max - min) + 1) + min;
-        while (!placeMark(x, y)) {
+        while (!placeMark(x, y) && !checkForWin() && !isBoardFull()) {
             x = rand.nextInt((max - min) + 1) + min;
             y = rand.nextInt((max - min) + 1) + min;
         }
         if(!checkForWin()){
-            switchPlayer();
+            endTurn();
         }
-
-
     }
 }

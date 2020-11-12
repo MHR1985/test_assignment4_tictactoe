@@ -17,8 +17,9 @@ public class GameHandler {
 
     public void runGame() throws BoardException {
         engine.initializeBoard();
-        while(!engine.checkForWin() || !engine.isBoardFull()){
+        while(!engine.checkForWin()){
             engine.printBoard();
+            if(engine.isBoardFull()) break;
             System.out.println("");
             System.out.println("It is player: " + engine.getCurrentPlayer());
             System.out.println("Enter x coordinate");
@@ -29,8 +30,8 @@ public class GameHandler {
                 engine.endTurn();
             };
             System.out.println("");
-
         }
+        System.out.println("\nGAME OVER!");
         if(engine.checkForWin()){
             if(engine.getCurrentPlayer()=='X'){
                 System.out.println("PLAYER O WON!");
@@ -38,7 +39,7 @@ public class GameHandler {
                 System.out.println("PLAYER X WON!");
             }
             engine.printBoard();
-        }else if(engine.isBoardFull()){
+        } else if(engine.isBoardFull()){
             System.out.println("IT'S A DRAW");
         }
 
