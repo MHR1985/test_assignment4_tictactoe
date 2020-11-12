@@ -23,7 +23,6 @@
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.8.1</version>
         </dependency>
-
     </dependencies>
 
     <properties>
@@ -41,6 +40,7 @@
                     <release>11</release>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 </project>
