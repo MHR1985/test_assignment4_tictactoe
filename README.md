@@ -7,7 +7,7 @@ This is our implementation of Assignment 4 in Test class. We chose to implement 
 You run our game by running the Main class in the project. Simple as that.
 
 ### Code Coverage
-[link](coverage/index.html)
+Open /coverage/index.html in browser to see code coverage.
 
 ## Mockito Powerups
 
