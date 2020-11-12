@@ -29,4 +29,17 @@
                                     x.getStart().equals(start) &&
                                     x.getEnd().equals(end)
                             ));
-     ```"# Assignment4" 
+     ```
+  * How do you use a predicate to verify the properties of the arguments given to a call to the mock?
+    ```
+        verify(storageMock)
+                        .createBooking(
+                                argThat(x -> x.getCustomerId() == customerId &&
+                                        x.getEmployeeId() == employeeId &&
+                                        x.getDate().equals(date) &&
+                                        x.getStart().equals(start) &&
+                                        x.getEnd().equals(end)
+                                ));
+         ```
+  
+  # Assignment4" 

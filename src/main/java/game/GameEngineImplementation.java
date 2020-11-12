@@ -36,6 +36,7 @@ public class GameEngineImplementation implements GameEngine {
                     System.out.print(board[i][j]);
                 }
             }
+            System.out.println("\n");
         }
     }
 
