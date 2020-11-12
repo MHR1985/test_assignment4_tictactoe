@@ -1,5 +1,11 @@
 #Assignment 4
 
+## Description
+This is our implementation of Assignment 4 in Test class. We chose to implement a tic-tac-toe game and fully covered with unittests.
+
+## How to run
+You run our game by running the Main class in the project. Simple as that.
+
 ## Mockito Powerups
 
 * How do you verify that a mock was called?
@@ -41,5 +47,3 @@
                                         x.getEnd().equals(end)
                                 ));
          ```
-  
-  # Assignment4" 
