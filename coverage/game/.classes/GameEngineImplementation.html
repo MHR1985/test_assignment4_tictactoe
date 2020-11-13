@@ -58,10 +58,10 @@
 </td>
 <td class="coverageStat">
   <span class="percent">
-    84%
+    95,7%
   </span>
   <span class="absValue">
-    (79/ 94)
+    (90/ 94)
   </span>
 </td>
 </tr>
@@ -164,7 +164,7 @@
 <i>90</i>&nbsp;    private char[][] getBoard() throws BoardException {
 <b class="fc"><i>91</i>&nbsp;        if (board != null) {</b>
 <b class="fc"><i>92</i>&nbsp;            return board;</b>
-<b class="nc"><i>93</i>&nbsp;        } else throw new BoardException(&quot;Board is null&quot;);</b>
+<b class="fc"><i>93</i>&nbsp;        } else throw new BoardException(&quot;Board is null&quot;);</b>
 <i>94</i>&nbsp;    }
 <i>95</i>&nbsp;
 <i>96</i>&nbsp;    @Override
@@ -190,17 +190,17 @@
 <i>116</i>&nbsp;
 <i>117</i>&nbsp;    private boolean checkColumnsForWin() {
 <b class="fc"><i>118</i>&nbsp;        if (board[0][0] == &#39;X&#39; &amp;&amp; board[1][0] == &#39;X&#39; &amp;&amp; board[2][0] == &#39;X&#39;) {</b>
-<b class="nc"><i>119</i>&nbsp;            return true;</b>
+<b class="fc"><i>119</i>&nbsp;            return true;</b>
 <b class="fc"><i>120</i>&nbsp;        } else if (board[0][0] == &#39;O&#39; &amp;&amp; board[1][0] == &#39;O&#39; &amp;&amp; board[2][0] == &#39;O&#39;) {</b>
-<b class="nc"><i>121</i>&nbsp;            return true;</b>
+<b class="fc"><i>121</i>&nbsp;            return true;</b>
 <b class="fc"><i>122</i>&nbsp;        } else if (board[0][1] == &#39;X&#39; &amp;&amp; board[1][1] == &#39;X&#39; &amp;&amp; board[2][1] == &#39;X&#39;) {</b>
-<b class="nc"><i>123</i>&nbsp;            return true;</b>
+<b class="fc"><i>123</i>&nbsp;            return true;</b>
 <b class="fc"><i>124</i>&nbsp;        } else if (board[0][1] == &#39;O&#39; &amp;&amp; board[1][1] == &#39;O&#39; &amp;&amp; board[2][1] == &#39;O&#39;) {</b>
 <b class="fc"><i>125</i>&nbsp;            return true;</b>
 <b class="fc"><i>126</i>&nbsp;        } else if (board[0][2] == &#39;O&#39; &amp;&amp; board[1][2] == &#39;O&#39; &amp;&amp; board[2][2] == &#39;O&#39;) {</b>
-<b class="nc"><i>127</i>&nbsp;            return true;</b>
+<b class="fc"><i>127</i>&nbsp;            return true;</b>
 <b class="fc"><i>128</i>&nbsp;        } else if (board[0][2] == &#39;X&#39; &amp;&amp; board[1][2] == &#39;X&#39; &amp;&amp; board[2][2] == &#39;X&#39;) {</b>
-<b class="nc"><i>129</i>&nbsp;            return true;</b>
+<b class="fc"><i>129</i>&nbsp;            return true;</b>
 <i>130</i>&nbsp;        }
 <b class="fc"><i>131</i>&nbsp;        return false;</b>
 <i>132</i>&nbsp;    }
@@ -209,13 +209,13 @@
 <b class="fc"><i>135</i>&nbsp;        if (board[0][0] == &#39;X&#39; &amp;&amp; board[0][1] == &#39;X&#39; &amp;&amp; board[0][2] == &#39;X&#39;) {</b>
 <b class="fc"><i>136</i>&nbsp;            return true;</b>
 <b class="fc"><i>137</i>&nbsp;        } else if (board[0][0] == &#39;O&#39; &amp;&amp; board[0][1] == &#39;O&#39; &amp;&amp; board[0][2] == &#39;O&#39;) {</b>
-<b class="nc"><i>138</i>&nbsp;            return true;</b>
+<b class="fc"><i>138</i>&nbsp;            return true;</b>
 <b class="fc"><i>139</i>&nbsp;        } else if (board[1][0] == &#39;X&#39; &amp;&amp; board[1][1] == &#39;X&#39; &amp;&amp; board[1][2] == &#39;X&#39;) {</b>
-<b class="nc"><i>140</i>&nbsp;            return true;</b>
+<b class="fc"><i>140</i>&nbsp;            return true;</b>
 <b class="fc"><i>141</i>&nbsp;        } else if (board[1][0] == &#39;O&#39; &amp;&amp; board[1][1] == &#39;O&#39; &amp;&amp; board[1][2] == &#39;O&#39;) {</b>
-<b class="nc"><i>142</i>&nbsp;            return true;</b>
+<b class="fc"><i>142</i>&nbsp;            return true;</b>
 <b class="fc"><i>143</i>&nbsp;        } else if (board[2][0] == &#39;O&#39; &amp;&amp; board[2][1] == &#39;O&#39; &amp;&amp; board[2][2] == &#39;O&#39;) {</b>
-<b class="nc"><i>144</i>&nbsp;            return true;</b>
+<b class="fc"><i>144</i>&nbsp;            return true;</b>
 <b class="fc"><i>145</i>&nbsp;        } else if (board[2][0] == &#39;X&#39; &amp;&amp; board[2][1] == &#39;X&#39; &amp;&amp; board[2][2] == &#39;X&#39;) {</b>
 <b class="fc"><i>146</i>&nbsp;            return true;</b>
 <i>147</i>&nbsp;        }
@@ -226,24 +226,24 @@
 <b class="fc"><i>152</i>&nbsp;        if (board[0][0] == &#39;X&#39; &amp;&amp; board[1][1] == &#39;X&#39; &amp;&amp; board[2][2] == &#39;X&#39;) {</b>
 <b class="fc"><i>153</i>&nbsp;            return true;</b>
 <b class="fc"><i>154</i>&nbsp;        } else if (board[0][0] == &#39;O&#39; &amp;&amp; board[1][1] == &#39;O&#39; &amp;&amp; board[2][2] == &#39;O&#39;) {</b>
-<b class="nc"><i>155</i>&nbsp;            return true;</b>
+<b class="fc"><i>155</i>&nbsp;            return true;</b>
 <b class="fc"><i>156</i>&nbsp;        } else if (board[0][2] == &#39;O&#39; &amp;&amp; board[1][1] == &#39;O&#39; &amp;&amp; board[2][0] == &#39;O&#39;) {</b>
-<b class="nc"><i>157</i>&nbsp;            return true;</b>
+<b class="fc"><i>157</i>&nbsp;            return true;</b>
 <b class="fc"><i>158</i>&nbsp;        } else if (board[0][2] == &#39;X&#39; &amp;&amp; board[1][1] == &#39;X&#39; &amp;&amp; board[2][0] == &#39;X&#39;) {</b>
-<b class="nc"><i>159</i>&nbsp;            return true;</b>
+<b class="fc"><i>159</i>&nbsp;            return true;</b>
 <i>160</i>&nbsp;        }
 <b class="fc"><i>161</i>&nbsp;        return false;</b>
 <i>162</i>&nbsp;    }
 <i>163</i>&nbsp;
-<i>164</i>&nbsp;    private void aiMove() throws BoardException {
+<i>164</i>&nbsp;    protected void aiMove() throws BoardException {
 <b class="fc"><i>165</i>&nbsp;        Random rand = new Random();</b>
 <b class="fc"><i>166</i>&nbsp;        int min = 1;</b>
 <b class="fc"><i>167</i>&nbsp;        int max = 3;</b>
 <b class="fc"><i>168</i>&nbsp;        int x = rand.nextInt((max - min) + 1) + min;</b>
 <b class="fc"><i>169</i>&nbsp;        int y = rand.nextInt((max - min) + 1) + min;</b>
 <b class="fc"><i>170</i>&nbsp;        while (!placeMark(x, y) &amp;&amp; !checkForWin() &amp;&amp; !isBoardFull()) {</b>
-<b class="fc"><i>171</i>&nbsp;            x = rand.nextInt((max - min) + 1) + min;</b>
-<b class="fc"><i>172</i>&nbsp;            y = rand.nextInt((max - min) + 1) + min;</b>
+<b class="nc"><i>171</i>&nbsp;            x = rand.nextInt((max - min) + 1) + min;</b>
+<b class="nc"><i>172</i>&nbsp;            y = rand.nextInt((max - min) + 1) + min;</b>
 <i>173</i>&nbsp;        }
 <b class="fc"><i>174</i>&nbsp;        if(!checkForWin()){</b>
 <b class="fc"><i>175</i>&nbsp;            endTurn();</b>
@@ -255,7 +255,7 @@
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2020-11-12 18:29</div>
+    <div style="float:right;">generated on 2020-11-13 01:17</div>
 </div>
 </body>
 </html>

@@ -42,6 +42,18 @@ public class GameEngineTest {
     }
 
     @Test
+    public void TestgetCoordinateSymbolThrowsExceptionWhenInvalidCoordinates(){
+        //arrange
+        GameEngine engine = new GameEngineImplementation(false);
+        //act
+        //assert
+        Exception ex = assertThrows(BoardException.class,()->{
+            engine.getCoordinateSymbol(0,0);
+        });
+        assertNotNull(ex);
+    }
+
+    @Test
     public void TestBoardHasBeenInitialized() throws BoardException {
         //arrange
         //act
@@ -53,6 +65,7 @@ public class GameEngineTest {
             assertTrue(false);
         }
     }
+
 
     @Test
     public void TestGetCoordinateSymbol() throws BoardException {
@@ -73,6 +86,32 @@ public class GameEngineTest {
         char symbol = engine.getCoordinateSymbol(1,1);
         //assert
         assertTrue(symbol=='X'||symbol=='O');
+    }
+
+    @Test
+    public void TestPlaceMarkMustThrowExceptionWhenInvalidCoordinates() throws BoardException {
+        //arrange
+        GameEngine engine = new GameEngineImplementation(false);
+        //act
+        //assert
+        Exception ex = assertThrows(BoardException.class,()->{
+            engine.placeMark(0,0);
+            engine.placeMark(4,4);
+        });
+        assertNotNull(ex);
+    }
+
+    @Test
+    public void TestGetCoordinateSymbolMustThrowExceptionWhenInvalidCoordinates() throws BoardException {
+        //arrange
+        GameEngine engine = new GameEngineImplementation(false);
+        //act
+        //assert
+        Exception ex = assertThrows(BoardException.class,()->{
+            engine.getCoordinateSymbol(0,0);
+            engine.getCoordinateSymbol(4,4);
+        });
+        assertNotNull(ex);
     }
 
     @Test
@@ -120,7 +159,7 @@ public class GameEngineTest {
     }
 
     @Test
-    public void TestForDiagonalWin() throws BoardException {
+    public void TestForDiagonalWinX1() throws BoardException {
         //arrange
         //act
         engine.placeMark(1,1);
@@ -147,33 +186,188 @@ public class GameEngineTest {
     }
 
     @Test
-    public void TestForRowWin() throws BoardException {
+    public void TestForDiagonalWinO1() throws BoardException {
         //arrange
         //act
+        engine.endTurn();
         engine.placeMark(1,1);
-        engine.endTurn();
+        engine.placeMark(2,2);
         engine.placeMark(3,3);
-        engine.endTurn();
-        engine.placeMark(1,2);
-        engine.endTurn();
-        engine.placeMark(3,2);
-        engine.endTurn();
-        engine.placeMark(1,3);
-        engine.endTurn();
         //assert
         engine.printBoard();
         assertTrue(engine.checkForWin());
     }
 
     @Test
-    public void TestForColumnWin() throws BoardException {
+    public void TestForDiagonalWinX2() throws BoardException {
+        //arrange
+        //act
+        engine.placeMark(1,3);
+        engine.placeMark(2,2);
+        engine.placeMark(3,1);
+        //assert
+        engine.printBoard();
+        assertTrue(engine.checkForWin());
+    }
+    @Test
+    public void TestForDiagonalWinO2() throws BoardException {
+        //arrange
+        //act
+        engine.endTurn();
+        engine.placeMark(1,3);
+        engine.placeMark(2,2);
+        engine.placeMark(3,1);
+        //assert
+        engine.printBoard();
+        assertTrue(engine.checkForWin());
+    }
+
+
+    @Test
+    public void TestForRowWinX1() throws BoardException {
         //arrange
         //act
         engine.placeMark(1,1);
-        engine.placeMark(3,3);
         engine.placeMark(2,1);
-        engine.placeMark(3,2);
         engine.placeMark(3,1);
+        //assert
+        engine.printBoard();
+        assertTrue(engine.checkForWin());
+    }
+
+    @Test
+    public void TestForRowWinX2() throws BoardException {
+        //arrange
+        //act
+        engine.placeMark(1,2);
+        engine.placeMark(2,2);
+        engine.placeMark(3,2);
+        //assert
+        engine.printBoard();
+        assertTrue(engine.checkForWin());
+    }
+
+    @Test
+    public void TestForRowWinX3() throws BoardException {
+        //arrange
+        //act
+        engine.placeMark(1,3);
+        engine.placeMark(2,3);
+        engine.placeMark(3,3);
+        //assert
+        engine.printBoard();
+        assertTrue(engine.checkForWin());
+    }
+
+    @Test
+    public void TestForRowWinO1() throws BoardException {
+        //arrange
+        //act
+        engine.endTurn();
+        engine.placeMark(1,1);
+        engine.placeMark(2,1);
+        engine.placeMark(3,1);
+        //assert
+        engine.printBoard();
+        assertTrue(engine.checkForWin());
+    }
+
+    @Test
+    public void TestForRowWinO2() throws BoardException {
+        //arrange
+        //act
+        engine.endTurn();
+        engine.placeMark(1,2);
+        engine.placeMark(2,2);
+        engine.placeMark(3,2);
+        //assert
+        engine.printBoard();
+        assertTrue(engine.checkForWin());
+    }
+
+    @Test
+    public void TestForRowWinO3() throws BoardException {
+        //arrange
+        //act
+        engine.endTurn();
+        engine.placeMark(1,3);
+        engine.placeMark(2,3);
+        engine.placeMark(3,3);
+        //assert
+        engine.printBoard();
+        assertTrue(engine.checkForWin());
+    }
+
+    @Test
+    public void TestForColumnWinX1() throws BoardException {
+        //arrange
+        //act
+        engine.placeMark(1,1);
+        engine.placeMark(1,2);
+        engine.placeMark(1,3);
+        //assert
+        engine.printBoard();
+        assertTrue(engine.checkForWin());
+    }
+
+    @Test
+    public void TestForColumnWinX2() throws BoardException {
+        //arrange
+        //act
+        engine.placeMark(2,1);
+        engine.placeMark(2,2);
+        engine.placeMark(2,3);
+        //assert
+        engine.printBoard();
+        assertTrue(engine.checkForWin());
+    }
+
+    @Test
+    public void TestForColumnWinX3() throws BoardException {
+        //arrange
+        //act
+        engine.placeMark(3,1);
+        engine.placeMark(3,2);
+        engine.placeMark(3,3);
+        //assert
+        engine.printBoard();
+        assertTrue(engine.checkForWin());
+    }
+
+    @Test
+    public void TestForColumnWinO1() throws BoardException {
+        //arrange
+        //act
+        engine.endTurn();
+        engine.placeMark(1,1);
+        engine.placeMark(1,2);
+        engine.placeMark(1,3);
+        //assert
+        engine.printBoard();
+        assertTrue(engine.checkForWin());
+    }
+
+    @Test
+    public void TestForColumnWinO2() throws BoardException {
+        //arrange
+        //act
+        engine.endTurn();
+        engine.placeMark(2,1);
+        engine.placeMark(2,2);
+        engine.placeMark(2,3);
+        //assert
+        engine.printBoard();
+        assertTrue(engine.checkForWin());
+    }
+
+    @Test
+    public void TestForColumnWinO3() throws BoardException {
+        //arrange
+        //act
+        engine.endTurn();
+        engine.placeMark(3,1);
+        engine.placeMark(3,2);
+        engine.placeMark(3,3);
         //assert
         engine.printBoard();
         assertTrue(engine.checkForWin());
