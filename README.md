@@ -47,6 +47,6 @@ We have performed a static analysis with QAPlug, to inspect and refactor the cod
                                     x.getEnd().equals(end)
                             ));
      ```
-  * How do you use a predicate to verify the properties of the arguments given to a call to the mock?
+ * How do you use a predicate to verify the properties of the arguments given to a call to the mock?
     * We have not been able to determine how to use predicate with Mockito.
 
