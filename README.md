@@ -1,4 +1,4 @@
-#Assignment 4
+# Test: Tic-Tac-Toe Assignment 4
 
 ## Description
 This is our implementation of Assignment 4 in Test class. We chose to implement a tic-tac-toe game and fully covered with unittests.
