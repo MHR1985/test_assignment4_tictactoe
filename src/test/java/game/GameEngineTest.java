@@ -35,26 +35,22 @@ public class GameEngineTest {
         GameEngine engine = new GameEngineImplementation(false);
         //act
         //assert
-        Exception ex = assertThrows(BoardException.class,()->{
-           engine.printBoard();
-        });
+        Exception ex = assertThrows(BoardException.class,engine::printBoard);
         assertNotNull(ex);
     }
 
     @Test
-    public void TestgetCoordinateSymbolThrowsExceptionWhenInvalidCoordinates(){
+    public void TestGetCoordinateSymbolThrowsExceptionWhenInvalidCoordinates(){
         //arrange
         GameEngine engine = new GameEngineImplementation(false);
         //act
         //assert
-        Exception ex = assertThrows(BoardException.class,()->{
-            engine.getCoordinateSymbol(0,0);
-        });
+        Exception ex = assertThrows(BoardException.class,()-> engine.getCoordinateSymbol(0,0));
         assertNotNull(ex);
     }
 
     @Test
-    public void TestBoardHasBeenInitialized() throws BoardException {
+    public void TestBoardHasBeenInitialized() {
         //arrange
         //act
         //assert
@@ -62,7 +58,7 @@ public class GameEngineTest {
             engine.printBoard();
             assertTrue(true);
         }catch(BoardException ex){
-            assertTrue(false);
+            fail();
         }
     }
 
@@ -73,7 +69,7 @@ public class GameEngineTest {
         //act
         char symbol = engine.getCoordinateSymbol(1,1);
         //assert
-        assertTrue(symbol=='.');
+        assertEquals(symbol, '.');
 
 
     }
@@ -89,7 +85,7 @@ public class GameEngineTest {
     }
 
     @Test
-    public void TestPlaceMarkMustThrowExceptionWhenInvalidCoordinates() throws BoardException {
+    public void TestPlaceMarkMustThrowExceptionWhenInvalidCoordinates() {
         //arrange
         GameEngine engine = new GameEngineImplementation(false);
         //act
@@ -102,7 +98,7 @@ public class GameEngineTest {
     }
 
     @Test
-    public void TestGetCoordinateSymbolMustThrowExceptionWhenInvalidCoordinates() throws BoardException {
+    public void TestGetCoordinateSymbolMustThrowExceptionWhenInvalidCoordinates() {
         //arrange
         GameEngine engine = new GameEngineImplementation(false);
         //act
@@ -151,7 +147,7 @@ public class GameEngineTest {
     }
 
     @Test
-    public void TestIsBoardNotFull() throws BoardException {
+    public void TestIsBoardNotFull() {
         //arrange
         //act
         //assert
@@ -390,10 +386,7 @@ public class GameEngineTest {
         System.setIn(in);
         Scanner scanner = new Scanner(System.in);
         GameHandler handler = new GameHandler(new GameEngineImplementation(false), scanner);
-        Exception ex = assertThrows(InputMismatchException.class,()->{
-            handler.getInput(scanner,"x");
-        });
-        System.out.println(ex);
+        Exception ex = assertThrows(InputMismatchException.class,()-> handler.getInput(scanner,"x"));
         assertNotNull(ex);
     }
 
@@ -405,7 +398,6 @@ public class GameEngineTest {
         for (int i = 0; i < 9; i++) {
             engine.endTurn();
             engine.printBoard();
-            System.out.println("");
             if (engine.checkForWin()){
                 assertTrue(engine.checkForWin());
                 break;

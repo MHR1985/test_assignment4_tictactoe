@@ -1,7 +1,6 @@
 package game;
 
 import exceptions.BoardException;
-import game.GameEngine;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -10,7 +9,7 @@ public class GameEngineImplementation implements GameEngine {
 
     private char[][] board = null;
     private Character currentPlayer = 'X';
-    private boolean ai;
+    private final boolean ai;
 
     public GameEngineImplementation(boolean enableAI) {
         ai = enableAI;
@@ -19,8 +18,8 @@ public class GameEngineImplementation implements GameEngine {
     @Override
     public void initializeBoard() {
         board = new char[3][3];
-        for (int i = 0; i < board.length; i++) {
-            Arrays.fill(board[i], '.');
+        for (char[] chars : board) {
+            Arrays.fill(chars, '.');
         }
 
     }
@@ -30,10 +29,10 @@ public class GameEngineImplementation implements GameEngine {
         if (board == null) {
             throw new BoardException("Board is null");
         } else {
-            for (int i = 0; i < board.length; i++) {
+            for (char[] chars : board) {
                 System.out.println();
                 for (int j = 0; j < board.length; j++) {
-                    System.out.print(board[i][j]);
+                    System.out.print(chars[j]);
                 }
             }
             System.out.println("\n");
@@ -42,7 +41,7 @@ public class GameEngineImplementation implements GameEngine {
 
     @Override
     public boolean placeMark(int x, int y) throws BoardException {
-        getBoard();
+        checkBoard();
         if (x < 1 || x > 3 || y < 1 || y > 3) {
             throw new BoardException("Coordinates too low or high");
         }
@@ -57,7 +56,7 @@ public class GameEngineImplementation implements GameEngine {
 
     @Override
     public char getCoordinateSymbol(int x, int y) throws BoardException {
-        getBoard();
+        checkBoard();
         if (x < 1 || x > 3 || y < 1 || y > 3) {
             throw new BoardException("Coordinates not too low or high");
         }
@@ -87,17 +86,16 @@ public class GameEngineImplementation implements GameEngine {
         }
     }
 
-    private char[][] getBoard() throws BoardException {
-        if (board != null) {
-            return board;
-        } else throw new BoardException("Board is null");
-    }
+    private void checkBoard() throws BoardException {
+        if (board == null)
+            throw new BoardException("Board is null");
+       }
 
     @Override
     public boolean isBoardFull() {
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j] == '.') {
+        for (char[] chars : board) {
+            for (char aChar : chars) {
+                if (aChar == '.') {
                     return false;
                 }
             }
@@ -107,10 +105,7 @@ public class GameEngineImplementation implements GameEngine {
 
     @Override
     public boolean checkForWin() {
-        if (checkDiagonalsForWin() || checkRowsForWin() || checkColumnsForWin()) {
-            return true;
-        }
-        return false;
+        return checkDiagonalsForWin() || checkRowsForWin() || checkColumnsForWin();
     }
 
 
@@ -125,10 +120,7 @@ public class GameEngineImplementation implements GameEngine {
             return true;
         } else if (board[0][2] == 'O' && board[1][2] == 'O' && board[2][2] == 'O') {
             return true;
-        } else if (board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'X') {
-            return true;
-        }
-        return false;
+        } else return board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'X';
     }
 
     private boolean checkRowsForWin() {
@@ -142,10 +134,7 @@ public class GameEngineImplementation implements GameEngine {
             return true;
         } else if (board[2][0] == 'O' && board[2][1] == 'O' && board[2][2] == 'O') {
             return true;
-        } else if (board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == 'X') {
-            return true;
-        }
-        return false;
+        } else return board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == 'X';
     }
 
     private boolean checkDiagonalsForWin() {
@@ -155,10 +144,7 @@ public class GameEngineImplementation implements GameEngine {
             return true;
         } else if (board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O') {
             return true;
-        } else if (board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X') {
-            return true;
-        }
-        return false;
+        } else return board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X';
     }
 
     private void aiMove() throws BoardException {

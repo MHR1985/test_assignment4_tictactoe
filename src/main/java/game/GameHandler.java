@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 public class GameHandler {
 
-    private GameEngine engine;
-    private Scanner scan;
+    private final GameEngine engine;
+    private final Scanner scan;
 
     public GameHandler(GameEngine engine, Scanner scan) {
         this.engine = engine;
@@ -32,7 +32,7 @@ public class GameHandler {
                 System.out.println(ex.getMessage());
             }
 
-            if(y != null && x != null){
+            if(y != null){
                 if (engine.placeMark(x, y)) {
                     engine.endTurn();
                 }

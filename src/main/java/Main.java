@@ -11,11 +11,12 @@ public class Main {
         while(true){
             try {
                 Scanner scanner = new Scanner(System.in);
-                System.out.println("Select gamemode: 1 for PVP - 2 for PVE");
+                System.out.println("Select gameMode: 1 for PVP - 2 for PVE or 3 to exit the game");
                 boolean mode = false;
                 int choice = scanner.nextInt();
-                if(choice==1 || choice ==2){
-                    if (choice == 2){
+                if(choice > 0 && choice < 4){
+                    if(choice == 3) break;
+                    else if (choice == 2){
                         mode = true;
                     }
                     GameHandler handler = new GameHandler(new GameEngineImplementation(mode), scanner);

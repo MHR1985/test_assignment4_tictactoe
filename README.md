@@ -9,6 +9,14 @@ You run our game by running the Main class in the project. Simple as that.
 ### Code Coverage
 Open /coverage/index.html in browser to see code coverage.
 
+### Mutation Coverage
+Open /mutationCoverage/202011151247/index.html in browser to see mutation coverage.
+You can also choose to generate the mutation report yourself. Maven needs to be installed globally. To generate the report run this command in the terminal:
+* mvn clean test org.pitest:pitest-maven:mutationCoverage.
+
+### Static Analysis
+We have performed a static analysis with QAPlug, to inspect and refactor the code;
+
 ## Mockito Powerups
 
 * How do you verify that a mock was called?
@@ -40,13 +48,5 @@ Open /coverage/index.html in browser to see code coverage.
                             ));
      ```
   * How do you use a predicate to verify the properties of the arguments given to a call to the mock?
-    ```
-        verify(storageMock)
-                        .createBooking(
-                                argThat(x -> x.getCustomerId() == customerId &&
-                                        x.getEmployeeId() == employeeId &&
-                                        x.getDate().equals(date) &&
-                                        x.getStart().equals(start) &&
-                                        x.getEnd().equals(end)
-                                ));
-         ```
+    * We have not been able to determine how to use predicate with Mockito.
+
